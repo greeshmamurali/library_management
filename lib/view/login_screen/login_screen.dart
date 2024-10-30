@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:library_management/controller/registration_controller.dart';
 import 'package:library_management/utils/colorConstants.dart';
-import 'package:library_management/view/homescreen/homescreen.dart';
+import 'package:library_management/view/home_screen/home_screen.dart';
 import 'package:library_management/view/registration_screen/registration_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -73,7 +73,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         InkWell(
                           onTap: () {
                             if (_formkey.currentState!.validate()) {
-                              
                               if (RegistrationController.getEmail() ==
                                       _emailController.text &&
                                   RegistrationController.getPass() ==
@@ -81,12 +80,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Homescreen(),
+                                      builder: (context) => HomeScreen(),
                                     ));
-                              }
-                              else {
-                                 ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Wrong Credentials')));
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text('Wrong Credentials')));
                               }
                             }
                           },
@@ -173,6 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 } else if (emailRegExp.hasMatch(value)) {
                   return null;
                 }
+                return null;
               }
             : (value) {
                 if (value!.length < 6) {

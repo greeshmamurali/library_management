@@ -26,4 +26,8 @@ class RegistrationController {
   static getPass() {
     return prefs.getString('pass');
   }
+
+  readBookDate(int id, String title, String author, String status) {
+    prefs.setInt('id', id);
+  }
 }

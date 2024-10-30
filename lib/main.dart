@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:library_management/view/homescreen/homescreen.dart';
-import 'package:library_management/view/splash_screen/splash_screen.dart';
+import 'package:library_management/controller/addProject_controller.dart';
+import 'package:library_management/controller/homescreen_controller.dart';
+import 'package:library_management/view/addProject/addProject.dart';
+import 'package:provider/provider.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -11,9 +14,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Homescreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => HomescreenController(),),
+        ChangeNotifierProvider(create: (context) => AddprojectController(),)
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Addproject(),
+      ),
     );
   }
 }

@@ -52,7 +52,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     SizedBox(
                       height: 15,
                     ),
-                
+
                     //FULL NAME CONTAINER
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 7, vertical: 4),
@@ -67,35 +67,35 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 offset: Offset(2, 2))
                           ]),
                       child: TextFormField(
-                                              validator: (value) {
-                      final RegExp nameRegExp = RegExp(r"^[a-zA-Z\s]+$");
-                                      
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter a name';
-                      } else if (!nameRegExp.hasMatch(value)) {
-                        return 'Enter a valid name (only letters and spaces allowed)';
-                      } else if (value.length <= 2) {
-                        return 'Name should be at least 2 characters long';
-                      }
-                      return null;
-                                              },
-                                              controller: _nameController,
-                                              decoration: InputDecoration(
-                        border: InputBorder.none,
-                        icon: Icon(Icons.person),
-                        iconColor: Colors.black,
-                        hintText: 'FULL NAME',
-                        hintStyle: TextStyle(
-                            color: Colorconstants.GREY_COLOUR,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15)),
-                                            ),
+                        validator: (value) {
+                          final RegExp nameRegExp = RegExp(r"^[a-zA-Z\s]+$");
+
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a name';
+                          } else if (!nameRegExp.hasMatch(value)) {
+                            return 'Enter a valid name (only letters and spaces allowed)';
+                          } else if (value.length <= 2) {
+                            return 'Name should be at least 2 characters long';
+                          }
+                          return null;
+                        },
+                        controller: _nameController,
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            icon: Icon(Icons.person),
+                            iconColor: Colors.black,
+                            hintText: 'FULL NAME',
+                            hintStyle: TextStyle(
+                                color: Colorconstants.GREY_COLOUR,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15)),
+                      ),
                     ),
-                
+
                     SizedBox(
                       height: 15,
                     ),
-                
+
                     //EMAIL
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 7, vertical: 4),
@@ -110,32 +110,33 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 offset: Offset(2, 2))
                           ]),
                       child: TextFormField(
-                                              validator: (value) {
-                      final RegExp emailRegExp = RegExp(
-                        r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
-                      );
-                      if (value == null || value.isEmpty) {
-                        return 'Enter a valid email id';
-                      } else if (emailRegExp.hasMatch(value)) {
-                        return null;
-                      }
-                                              },
-                                              controller: _emailController,
-                                              decoration: InputDecoration(
-                        border: InputBorder.none,
-                        icon: Icon(Icons.person),
-                        iconColor: Colors.black,
-                        hintText: 'EMAIL',
-                        hintStyle: TextStyle(
-                            color: Colorconstants.GREY_COLOUR,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15)),
-                                            ),
+                        validator: (value) {
+                          final RegExp emailRegExp = RegExp(
+                            r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
+                          );
+                          if (value == null || value.isEmpty) {
+                            return 'Enter a valid email id';
+                          } else if (emailRegExp.hasMatch(value)) {
+                            return null;
+                          }
+                          return null;
+                        },
+                        controller: _emailController,
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            icon: Icon(Icons.person),
+                            iconColor: Colors.black,
+                            hintText: 'EMAIL',
+                            hintStyle: TextStyle(
+                                color: Colorconstants.GREY_COLOUR,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15)),
+                      ),
                     ),
                     SizedBox(
                       height: 15,
                     ),
-                
+
                     //PASSWORD
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 7, vertical: 4),
@@ -150,28 +151,28 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 offset: Offset(2, 2))
                           ]),
                       child: TextFormField(
-                                              validator: (value) {
-                      if (value!.length < 6) {
-                        return 'Enter a valid password';
-                      }
-                      return null;
-                                              },
-                                              controller: _passController,
-                                              decoration: InputDecoration(
-                        border: InputBorder.none,
-                        icon: Icon(Icons.person),
-                        iconColor: Colors.black,
-                        hintText: 'PASSWORD',
-                        hintStyle: TextStyle(
-                            color: Colorconstants.GREY_COLOUR,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15)),
-                                            ),
+                        validator: (value) {
+                          if (value!.length < 6) {
+                            return 'Enter a valid password';
+                          }
+                          return null;
+                        },
+                        controller: _passController,
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            icon: Icon(Icons.person),
+                            iconColor: Colors.black,
+                            hintText: 'PASSWORD',
+                            hintStyle: TextStyle(
+                                color: Colorconstants.GREY_COLOUR,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15)),
+                      ),
                     ),
                     SizedBox(
                       height: 15,
                     ),
-                
+
                     //CONFIRM PASSWORD
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 7, vertical: 4),
@@ -186,29 +187,29 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                 offset: Offset(2, 2))
                           ]),
                       child: TextFormField(
-                                              validator: (value) {
-                      if (_passController.text != value) {
-                        return "Passwords don't match";
-                      }
-                      return null;
-                                              },
-                                              controller: _confirmpassController,
-                                              decoration: InputDecoration(
-                        border: InputBorder.none,
-                        icon: Icon(Icons.person),
-                        iconColor: Colors.black,
-                        hintText: 'CONFIRM PASSWORD',
-                        hintStyle: TextStyle(
-                            color: Colorconstants.GREY_COLOUR,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15)),
-                                            ),
+                        validator: (value) {
+                          if (_passController.text != value) {
+                            return "Passwords don't match";
+                          }
+                          return null;
+                        },
+                        controller: _confirmpassController,
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            icon: Icon(Icons.person),
+                            iconColor: Colors.black,
+                            hintText: 'CONFIRM PASSWORD',
+                            hintStyle: TextStyle(
+                                color: Colorconstants.GREY_COLOUR,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15)),
+                      ),
                     ),
-                
+
                     SizedBox(
                       height: 20,
                     ),
-                
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -219,8 +220,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                   _nameController.text,
                                   _emailController.text,
                                   _passController.text);
-                                   ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Account Created Successfully')));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: Text(
+                                          'Account Created Successfully')));
                             }
                           },
                           child: Container(
